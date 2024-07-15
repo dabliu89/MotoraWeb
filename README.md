@@ -5,6 +5,7 @@ Sistema de facilitação de registro e acompanhamento de resultados de avaliaç�
 <br>
 **Desenvolvedores:**<br>
 Wesley Lessa Pinheiro (dabliu89)<br>
+Breno Gonzaga de Carvalho (brenogonzagacarvalho)<br>
 <br>
 **Tecnologias utilizadas**<br>
 Front-End: JavaScript / React<br>
