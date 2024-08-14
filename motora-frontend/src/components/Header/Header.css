@@ -1,0 +1,42 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logoImage {
+  width: 100px;
+  height: auto;
+}
+
+.userProfile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
+}
+
+.logoutButton {
+  margin-top: 10px;
+  padding: 8px 16px;
+  border: none;
+  background-color: transparent;
+  color: #16914F;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.profileImage {
+  margin-left: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
