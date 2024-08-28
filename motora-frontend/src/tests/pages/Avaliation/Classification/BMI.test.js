@@ -1,4 +1,4 @@
-import { calcularIMC, classificarIMC, avaliarIMC } from '../../../pages/Avaliation/Classification/BMI';
+import { calcularIMC, classificarIMC, avaliarIMC } from '../../../../pages/Avaliation/Classification/BMI';
 
 describe('Testes para a função calcularIMC', () => {
     

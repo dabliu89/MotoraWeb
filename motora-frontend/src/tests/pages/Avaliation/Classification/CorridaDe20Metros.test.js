@@ -1,4 +1,4 @@
-import { classificarCorrida, avaliarCorrida } from '../../../pages/Avaliation/Classification/CorridaDe20Metros';
+import { classificarCorrida, avaliarCorrida } from '../../../../pages/Avaliation/Classification/CorridaDe20Metros';
 
 describe('Testes para a função classificarCorrida', () => {
     

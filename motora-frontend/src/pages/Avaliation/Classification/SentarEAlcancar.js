@@ -1,4 +1,4 @@
-function classificarSentarAlcancar(valorTeste, idade, sexo) {
+export function classificarSentarAlcancar(valorTeste, idade, sexo) {
     const pontosDeCorte = {
         'Rapazes': [29, 29, 32.5, 29, 29.5, 29.5, 29.5, 26.5, 30.5, 31, 34.5, 34],
         'Moças': [40.5, 40.5, 39.5, 35.0, 36.5, 34.5, 39.5, 38.5, 38.5, 38.5, 39.5, 39.5]
@@ -18,7 +18,7 @@ function classificarSentarAlcancar(valorTeste, idade, sexo) {
     }
 }
 
-function avaliarSentarAlcancar(valorTeste, idade, sexo) {
+export function avaliarSentarAlcancar(valorTeste, idade, sexo) {
     const classificacao = classificarSentarAlcancar(valorTeste, idade, sexo);
     return `Valor do teste: ${valorTeste} cm - Classificação: ${classificacao}`;
 }

@@ -1,4 +1,4 @@
-import { classificarSentarAlcancar, avaliarSentarAlcancar } from '../../../pages/Avaliation/Classification/SentarEAlcancar';
+import { classificarSentarAlcancar, avaliarSentarAlcancar } from '../../../../pages/Avaliation/Classification/SentarEAlcancar';
 
 describe('Testes para a função classificarSentarAlcancar', () => {
     

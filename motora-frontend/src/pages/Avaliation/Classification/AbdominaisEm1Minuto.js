@@ -1,4 +1,4 @@
-function classificarAbdominais(qtdAbdominais, idade, sexo) {
+export function classificarAbdominais(qtdAbdominais, idade, sexo) {
     const pontosDeCorte = {
         'Rapazes': [18, 18, 24, 26, 31, 37, 41, 42, 43, 45, 46, 47],
         'Moças': [18, 18, 18, 20, 26, 30, 30, 33, 34, 34, 34, 34]
@@ -18,7 +18,7 @@ function classificarAbdominais(qtdAbdominais, idade, sexo) {
     }
 }
 
-function avaliarAbdominais(qtdAbdominais, idade, sexo) {
+export function avaliarAbdominais(qtdAbdominais, idade, sexo) {
     const classificacao = classificarAbdominais(qtdAbdominais, idade, sexo);
     return `Quantidade de abdominais: ${qtdAbdominais} - Classificação: ${classificacao}`;
 }

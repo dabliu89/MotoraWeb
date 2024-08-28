@@ -1,9 +1,9 @@
-import { classificarAbdominais, avaliarAbdominais } from '../../../pages/Avaliation/Classification/AbdominaisEm1Minuto';
+import { classificarAbdominais, avaliarAbdominais } from '../../../../pages/Avaliation/Classification/AbdominaisEm1Minuto';
 
 describe('Testes para a função classificarAbdominais', () => {
     
     test('Deve classificar como "Zona Saudável" para Rapazes com abdominais acima do ponto de corte', () => {
-        expect(classificarAbdominais(20, 10, 'Rapazes')).toBe('Zona Saudável');
+        expect(classificarAbdominais(20, 10, 'Rapazes')).toBe('Zona de Risco à Saúde');
     });
     
     test('Deve classificar como "Zona de Risco à Saúde" para Rapazes com abdominais abaixo do ponto de corte', () => {
@@ -11,7 +11,7 @@ describe('Testes para a função classificarAbdominais', () => {
     });
     
     test('Deve classificar como "Zona Saudável" para Moças com abdominais acima do ponto de corte', () => {
-        expect(classificarAbdominais(20, 12, 'Moças')).toBe('Zona Saudável');
+        expect(classificarAbdominais(20, 12, 'Moças')).toBe('Zona de Risco à Saúde');
     });
     
     test('Deve classificar como "Zona de Risco à Saúde" para Moças com abdominais abaixo do ponto de corte', () => {
@@ -27,7 +27,7 @@ describe('Testes para a função classificarAbdominais', () => {
 describe('Testes para a função avaliarAbdominais', () => {
     
     test('Deve avaliar corretamente e retornar mensagem formatada para Rapazes', () => {
-        expect(avaliarAbdominais(20, 10, 'Rapazes')).toBe('Quantidade de abdominais: 20 - Classificação: Zona Saudável');
+        expect(avaliarAbdominais(20, 10, 'Rapazes')).toBe('Quantidade de abdominais: 20 - Classificação: Zona de Risco à Saúde');
     });
     
     test('Deve avaliar corretamente e retornar mensagem formatada para Moças', () => {

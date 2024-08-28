@@ -1,4 +1,4 @@
-import { calcularRCE, classificarRCE, avaliarRCE } from '../../../pages/Avaliation/Classification/RCE';
+import { calcularRCE, classificarRCE, avaliarRCE } from '../../../../pages/Avaliation/Classification/RCE';
 
 describe('Testes para a função calcularRCE', () => {
     
