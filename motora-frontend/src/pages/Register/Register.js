@@ -61,86 +61,86 @@ const Register = () => {
   };
 
   return (
-    <div className="registerContainer">
-      <div className="backgroundSquare"></div>
-      <div className="imageContainer"></div>
-      <div className="formContainer">
-        <h2 className="title">Cadastre-se agora e comece as suas avaliações.</h2>
-        <form className="form" onSubmit={handleRegister}>
-          <div className="formGroup">
-            <label className="label" htmlFor="firstName">Nome</label>
-            <input
-              type="text"
-              id="firstName"
-              name="firstName"
-              placeholder="João"
-              className="input"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-            />
+    <div className="background">
+      <div className="registerContainer">
+        <div className="formContainer">
+          <h2 className="title">Cadastre-se agora e comece as suas avaliações.</h2>
+          <form className="form" onSubmit={handleRegister}>
+            <div className="formGroup">
+              <label className="label" htmlFor="firstName">Nome</label>
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                placeholder="João"
+                className="input"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+              />
+            </div>
+            <div className="formGroup">
+              <label className="label" htmlFor="lastName">Sobrenome</label>
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                placeholder="Gomes da Costa"
+                className="input"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+              />
+            </div>
+            <div className="formGroup">
+              <label className="label" htmlFor="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="email@mail.com"
+                className="input"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className="formGroup">
+              <label className="label" htmlFor="password">Senha</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="******"
+                className="input"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <div className="formGroup">
+              <label className="label" htmlFor="confirmPassword">Repetir senha</label>
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                placeholder="******"
+                className="input"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+            </div>
+            <div className="formGroup">
+              <label className="label" htmlFor="image">Imagem de Perfil</label>
+              <input
+                type="file"
+                id="image"
+                name="image"
+                className="input"
+                onChange={(e) => setImage(e.target.files[0])}
+              />
+            </div>
+            <button type="submit" className="button">Criar conta</button>
+          </form>
+          <div className="links">
+            <p>Já possui uma conta? <a href="/login" className="link">Conecte-se.</a></p>
           </div>
-          <div className="formGroup">
-            <label className="label" htmlFor="lastName">Sobrenome</label>
-            <input
-              type="text"
-              id="lastName"
-              name="lastName"
-              placeholder="Gomes da Costa"
-              className="input"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-            />
-          </div>
-          <div className="formGroup">
-            <label className="label" htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="email@mail.com"
-              className="input"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <div className="formGroup">
-            <label className="label" htmlFor="password">Senha</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              placeholder="******"
-              className="input"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <div className="formGroup">
-            <label className="label" htmlFor="confirmPassword">Repetir senha</label>
-            <input
-              type="password"
-              id="confirmPassword"
-              name="confirmPassword"
-              placeholder="******"
-              className="input"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-          </div>
-          <div className="formGroup">
-            <label className="label" htmlFor="image">Imagem de Perfil</label>
-            <input
-              type="file"
-              id="image"
-              name="image"
-              className="input"
-              onChange={(e) => setImage(e.target.files[0])}
-            />
-          </div>
-          <button type="submit" className="button">Criar conta</button>
-        </form>
-        <div className="links">
-          <p>Já possui uma conta? <a href="/login" className="link">Conecte-se.</a></p>
         </div>
       </div>
     </div>
