@@ -42,7 +42,7 @@ const Header = () => {
       <div className="logo">
         <img src="/Logo.png" alt="Logo" className="logoImage" />
       </div>      
-      <div className="userProfile">
+      <div className="userProfile">        
         <span>Olá, {userName}.</span>
         <button className="logoutButton" onClick={handleLogout}>Sair</button>        
       </div>

@@ -7,6 +7,7 @@ import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import Turma from './pages/Turma/Turma';
+import NovaTurma from './pages/Turma/NovaTurma';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/avaliation" element={<Avaliation />} />
       <Route path="/turmas" element={<Turma />} />
+      <Route path="/nova-turma" element={<NovaTurma />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />      
     </Routes>
   );

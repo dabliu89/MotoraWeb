@@ -1,3 +1,8 @@
+
+import { useNavigate } from 'react-router-dom';
+import Header from '../../components/Header/Header';
+import Navigation from '../../components/Navigation/Navigation';
+import '../Dashboard/Dashboard.css';
 import { addDoc, collection, deleteDoc, doc, getDocs, updateDoc } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import { db } from '../../firebaseConfig';
@@ -68,10 +73,11 @@ const Turma = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container">      
       <div>
-        <h1>Gerenciamento de Turmas</h1>
-        <div className="form-group">
+        <h2>Adicionar nova turma:</h2>
+        
+        <div className="form-group">          
           <label>Nome da Turma</label>
           <input 
             type="text" 
@@ -101,21 +107,11 @@ const Turma = () => {
             placeholder="Descrição" 
           />
         </div>
-      </div>
-      <button type="submit" onClick={addTurma}>
+        <button type="submit" onClick={addTurma}>
         {editIndex !== null ? 'Editar Turma' : 'Adicionar Turma'}
-      </button>
-      <ul>
-        {turmas.map((turma, index) => (
-          <li key={turma.id}>
-            {turma.nome} - {turma.serie} - {turma.numero} - {turma.descricao}
-            <div>
-              <button type="EdButton" onClick={() => editTurma(index)}>Editar</button>
-              <button type="DelButton" onClick={() => deleteTurma(index)}>Deletar</button>
-            </div>
-          </li>
-        ))}
-      </ul>
+      </button>      
+      </div>
+      
     </div>
   );
 };

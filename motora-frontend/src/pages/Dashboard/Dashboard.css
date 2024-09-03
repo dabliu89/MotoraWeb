@@ -21,9 +21,8 @@
   color: #16914F;
 }
 
-.dashboard-container {
-  max-width: 900px;
-  margin: 30px auto;
+.dashboard-container {  
+  margin: 20px;
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

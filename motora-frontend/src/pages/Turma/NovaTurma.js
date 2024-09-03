@@ -1,11 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/Header';
-import ListarTurmas from '../../components/ListarTurmas';
+import Turma from '../../pages/Turma/Turma';
 import Navigation from '../../components/Navigation/Navigation';
-import './Dashboard.css';
-
-const Dashboard = () => {
+import '../Dashboard/Dashboard.css';
+const NovaTurma = () => {
   
   const navigate = useNavigate();
   
@@ -15,13 +14,10 @@ const Dashboard = () => {
       <Navigation />
       <header className="header">
         <h2 className="h2">Turmas</h2>
-      </header>
-      <div className="dashboard-container">
-        <div className="buttonNovaTurma" onClick={() => navigate('/nova-turma')}>Nova turma</div>
-        <ListarTurmas />
-      </div>
+      </header>      
+        <Turma />      
     </div>
   );
 };
 
-export default Dashboard;
+export default NovaTurma;

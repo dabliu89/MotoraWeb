@@ -1,0 +1,41 @@
+table {
+    width: 100%;
+    border-collapse: separate; /* Evita o colapso das bordas */
+    
+  }
+  
+  th, td {
+    padding: 10px; /* Dobrado o espaçamento interno */
+    text-align: center; /* Centraliza o texto */
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  button {
+    margin-right: 10px;
+    padding: 10px 20px; /* Tamanho dobrado */
+    color: white;
+    border: 1px solid black;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  button.edit {
+    background-color: #d9a500; /* Amarelo escuro para o botão de editar */
+  }
+  
+  button.edit:hover {
+    background-color: #b8860b; /* Efeito de hover */
+  }
+  
+  button.delete {
+    background-color: #e63946; /* Vermelho para o botão de excluir */
+  }
+  
+  button.delete:hover {
+    background-color: #c0392b; /* Efeito de hover */
+  }
+  

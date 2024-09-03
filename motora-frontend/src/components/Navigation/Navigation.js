@@ -7,9 +7,8 @@ const Navigation = () => {
   const navigate = useNavigate();
 
   return (
-    <nav style={styles.navigation}>
-      <button style={styles.navButton} onClick={() => navigate('/')}>HOME</button>
-      <button style={styles.navButton} onClick={() => navigate('/turmas')}>TURMAS</button>
+    <nav style={styles.navigation}>      
+      <button style={styles.navButton} onClick={() => navigate('/Dashboard')}>TURMAS</button>
       <button style={styles.navButton} onClick={() => navigate('/Avaliation')}>AVALIAÇÃO</button>      
     </nav>
   );
