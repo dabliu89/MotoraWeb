@@ -38,7 +38,7 @@ const ForgotPassword = () => {
                 className="input"
               />
             </div>
-            <button type="submit" className="button">Recuperar Senha</button>
+            <button className="button">Recuperar Senha</button>
           </form>
           <div className="links">
             <p><a href="/login" className="link">Voltar ao login</a></p>

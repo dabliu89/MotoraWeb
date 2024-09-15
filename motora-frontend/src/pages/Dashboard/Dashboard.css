@@ -7,14 +7,11 @@
   border-bottom: 1px solid #dee2e6;
 }
 
-.button {
-  margin-left: 10px;
-  padding: 8px 16px;
-  border-radius: 4px;
-  border: 1px solid #16914F;
-  background-color: #16914F;
-  color: #fff;
-  cursor: pointer;
+button[type="adicionar"] {
+  background-color: #37A569;}
+
+button[type="adicionar"]:hover {
+  background-color: #218838;
 }
 
 .h2 {

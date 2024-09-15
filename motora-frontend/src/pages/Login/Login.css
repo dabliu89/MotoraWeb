@@ -74,10 +74,16 @@
   color: #fff;
   border: none;
   border-radius: 4px;
+  margin-top: 15px;
   cursor: pointer;
   font-family: 'Montserrat', sans-serif;
   font-size: normal;
   font-weight: bold;
+}
+
+.button:hover {
+  background-color: #4cda8c;
+  color: #fff;
 }
 
 .links {

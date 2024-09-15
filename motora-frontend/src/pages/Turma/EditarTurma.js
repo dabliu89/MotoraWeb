@@ -1,12 +1,16 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/Header';
-import ListarTurmas from '../../components/ListarTurmas';
+import Turma from './AdicionarTurma';
 import Navigation from '../../components/Navigation/Navigation';
-import './Dashboard.css';
+import '../Dashboard/Dashboard.css';
+import EditTurma from './EditTurma';
+import { useParams } from 'react-router-dom';
 
-const Dashboard = () => {
+const EditarTurma = () => {
   
+  const { id } = useParams();
+
   const navigate = useNavigate();
   
   return (
@@ -15,13 +19,10 @@ const Dashboard = () => {
       <Navigation />
       <header className="header">
         <h2 className="h2">Turmas</h2>
-      </header>
-      <div className="dashboard-container">
-        <button type="adicionar" onClick={() => navigate('/nova-turma')}>Nova turma</button>
-        <ListarTurmas />
-      </div>
+      </header>      
+        <EditTurma />      
     </div>
   );
 };
 
-export default Dashboard;
+export default EditarTurma;

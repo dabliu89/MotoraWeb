@@ -1,7 +1,6 @@
 table {
     width: 100%;
-    border-collapse: separate; /* Evita o colapso das bordas */
-    
+    border-collapse: separate; /* Evita o colapso das bordas */    
   }
   
   th, td {
@@ -25,6 +24,10 @@ table {
   
   button.edit {
     background-color: #d9a500; /* Amarelo escuro para o botão de editar */
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 10px;
+    margin-left: 10px;
   }
   
   button.edit:hover {
@@ -33,6 +36,10 @@ table {
   
   button.delete {
     background-color: #e63946; /* Vermelho para o botão de excluir */
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 10px;
+    margin-left: 10px;
   }
   
   button.delete:hover {

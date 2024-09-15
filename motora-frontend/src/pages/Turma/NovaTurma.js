@@ -1,9 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/Header';
-import Turma from '../../pages/Turma/Turma';
+import Turma from './AdicionarTurma';
 import Navigation from '../../components/Navigation/Navigation';
 import '../Dashboard/Dashboard.css';
+import AdicionarTurma from './AdicionarTurma';
 const NovaTurma = () => {
   
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ const NovaTurma = () => {
       <header className="header">
         <h2 className="h2">Turmas</h2>
       </header>      
-        <Turma />      
+        <AdicionarTurma />      
     </div>
   );
 };

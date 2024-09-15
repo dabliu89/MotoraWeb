@@ -2,13 +2,14 @@
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import Navigation from '../../components/Navigation/Navigation';
-import '../Dashboard/Dashboard.css';
 import { addDoc, collection, deleteDoc, doc, getDocs, updateDoc } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import { db } from '../../firebaseConfig';
-import './Turma.css';
+import '../../pages/Turma/AdicionarTurma.css';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-const Turma = () => {
+const AdicionarTurma = () => {
   const [turmas, setTurmas] = useState([]);
   const [nome, setNome] = useState('');
   const [serie, setSerie] = useState('');
@@ -16,6 +17,8 @@ const Turma = () => {
   const [descricao, setDescricao] = useState('');
   const [editIndex, setEditIndex] = useState(null);
   const [editId, setEditId] = useState(null);
+
+  const navigate = useNavigate();
 
   const turmasCollectionRef = collection(db, 'turmas');
 
@@ -33,24 +36,36 @@ const Turma = () => {
   // Função para adicionar uma nova turma
   const addTurma = async () => {
     const turmaData = { nome, serie, numero, descricao };
-
-    if (editIndex !== null) {
-      const turmaDoc = doc(db, 'turmas', editId);
-      await updateDoc(turmaDoc, turmaData);
-      const updatedTurmas = turmas.map((turma, index) => 
-        index === editIndex ? { ...turma, ...turmaData } : turma
-      );
-      setTurmas(updatedTurmas);
-      setEditIndex(null);
-      setEditId(null);
-    } else {
-      const docRef = await addDoc(turmasCollectionRef, turmaData);
-      setTurmas([...turmas, { ...turmaData, id: docRef.id }]);
+    
+  
+    try {
+      if (editIndex !== null) {
+        // Atualizando uma turma existente
+        const turmaDoc = doc(db, 'turmas', editId);
+        await updateDoc(turmaDoc, turmaData);
+        const updatedTurmas = turmas.map((turma, index) =>
+          index === editIndex ? { ...turma, ...turmaData } : turma
+        );
+        setTurmas(updatedTurmas);
+        setEditIndex(null);
+        setEditId(null);
+        toast.success('Turma atualizada com sucesso!'); // Toast de sucesso para edição
+      } else {
+        // Adicionando uma nova turma
+        const docRef = await addDoc(turmasCollectionRef, turmaData);
+        setTurmas([...turmas, { ...turmaData, id: docRef.id }]);
+        toast.success('Nova turma adicionada com sucesso!'); // Toast de sucesso para adição
+        navigate('/Dashboard'); // Navega para o Dashboard após sucesso
+      }
+  
+      // Limpa os campos após adicionar/editar
+      setNome('');
+      setSerie('');
+      setNumero('');
+      setDescricao('');
+    } catch (error) {
+      toast.error('Erro ao adicionar/atualizar turma. Tente novamente.');
     }
-    setNome('');
-    setSerie('');
-    setNumero('');
-    setDescricao('');
   };
 
   // Função para editar uma turma
@@ -76,7 +91,6 @@ const Turma = () => {
     <div className="container">      
       <div>
         <h2>Adicionar nova turma:</h2>
-        
         <div className="form-group">          
           <label>Nome da Turma</label>
           <input 
@@ -107,13 +121,12 @@ const Turma = () => {
             placeholder="Descrição" 
           />
         </div>
-        <button type="submit" onClick={addTurma}>
+        <button type="adicionar" onClick={addTurma}>
         {editIndex !== null ? 'Editar Turma' : 'Adicionar Turma'}
       </button>      
-      </div>
-      
+      </div>      
     </div>
   );
 };
 
-export default Turma;
+export default AdicionarTurma;

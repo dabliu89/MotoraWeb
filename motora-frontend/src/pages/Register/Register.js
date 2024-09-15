@@ -136,7 +136,7 @@ const Register = () => {
                 onChange={(e) => setImage(e.target.files[0])}
               />
             </div>
-            <button type="submit" className="button">Criar conta</button>
+            <button className="button">Criar conta</button>
           </form>
           <div className="links">
             <p>Já possui uma conta? <a href="/login" className="link">Conecte-se.</a></p>

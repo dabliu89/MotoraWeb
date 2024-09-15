@@ -1,47 +1,40 @@
 import { collection, getDocs, doc, deleteDoc } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import { db } from '../firebaseConfig';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify'; // Importa o react-toastify
+import 'react-toastify/dist/ReactToastify.css';
 import './ListarTurmas.css';
 
 const ListarTurmas = () => {
   const [turmas, setTurmas] = useState([]);
-  const [nome, setNome] = useState('');
-  const [serie, setSerie] = useState('');
-  const [numero, setNumero] = useState('');
-  const [descricao, setDescricao] = useState('');
-  const [editIndex, setEditIndex] = useState(null);
-  const [editId, setEditId] = useState(null);
+  const navigate = useNavigate();
 
   const turmasCollectionRef = collection(db, 'turmas');
 
-  // Função para carregar as turmas do Firebase
   const loadTurmas = async () => {
     const data = await getDocs(turmasCollectionRef);
     setTurmas(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-  };  
+  };
 
   useEffect(() => {
     loadTurmas();
   }, []);
 
-    // Função para editar uma turma
-    const editTurma = (index) => {
-      const turma = turmas[index];
-      setNome(turma.nome);
-      setSerie(turma.serie);
-      setNumero(turma.numero);
-      setDescricao(turma.descricao);
-      setEditIndex(index);
-      setEditId(turma.id);
-    };
-  
-    // Função para deletar uma turma
-    const deleteTurma = async (index) => {
-      const turmaDoc = doc(db, 'turmas', turmas[index].id);
+  const editTurma = (id) => {
+    navigate(`/editar-turma/${id}`);
+  };
+
+  const deleteTurma = async (id) => {
+    try {
+      const turmaDoc = doc(db, 'turmas', id);
       await deleteDoc(turmaDoc);
-      const updatedTurmas = turmas.filter((_, i) => i !== index);
-      setTurmas(updatedTurmas);
-    };
+      toast.success('Turma excluída com sucesso!');
+      loadTurmas(); // Recarrega as turmas após a exclusão
+    } catch (error) {
+      toast.error('Erro ao excluir a turma.');
+    }
+  };
 
   return (
     <div>
@@ -57,7 +50,7 @@ const ListarTurmas = () => {
           </tr>
         </thead>
         <tbody>
-          {turmas.map((turma) => (
+          {turmas.map((turma, index) => (
             <tr key={turma.id}>
               <td>{turma.nome}</td>
               <td>{turma.serie}</td>
@@ -73,20 +66,6 @@ const ListarTurmas = () => {
       </table>
     </div>
   );
-  
-
-  // return (
-  //   <div>
-  //     <h3>Lista de Turmas</h3>
-  //     <ul>
-  //       {turmas.map((turma) => (
-  //         <li key={turma.id}>
-  //           {turma.nome} - {turma.serie} - {turma.numero} - {turma.descricao}
-  //         </li>
-  //       ))}
-  //     </ul>
-  //   </div>
-  // );
 };
 
 export default ListarTurmas;

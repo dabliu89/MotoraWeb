@@ -72,6 +72,7 @@
 
 .button {
   padding: 0.75rem;
+  margin-top: 15px;
   background-color: #297A4E;
   color: #fff;
   border: none;
@@ -80,6 +81,11 @@
   font-family: 'Montserrat', sans-serif;
   font-size: normal;
   font-weight: bold;
+}
+
+.button:hover {
+  background-color: #4cda8c;
+  color: #fff;
 }
 
 .links {
