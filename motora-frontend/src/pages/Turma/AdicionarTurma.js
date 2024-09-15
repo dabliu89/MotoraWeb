@@ -1,8 +1,8 @@
-
 import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import Navigation from '../../components/Navigation/Navigation';
 import { addDoc, collection, deleteDoc, doc, getDocs, updateDoc } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth'; // Importa a autenticação do Firebase
 import React, { useEffect, useState } from 'react';
 import { db } from '../../firebaseConfig';
 import '../../pages/Turma/AdicionarTurma.css';
@@ -19,6 +19,8 @@ const AdicionarTurma = () => {
   const [editId, setEditId] = useState(null);
 
   const navigate = useNavigate();
+  const auth = getAuth(); // Inicializa a autenticação
+  const user = auth.currentUser; // Captura o usuário logado
 
   const turmasCollectionRef = collection(db, 'turmas');
 
@@ -35,9 +37,19 @@ const AdicionarTurma = () => {
 
   // Função para adicionar uma nova turma
   const addTurma = async () => {
-    const turmaData = { nome, serie, numero, descricao };
+    if (!user) {
+      toast.error('Usuário não está autenticado.');
+      return;
+    }
+
+    const turmaData = { 
+      nome, 
+      serie, 
+      numero, 
+      descricao,
+      userId: user.uid // Associa o ID do usuário logado à turma
+    };
     
-  
     try {
       if (editIndex !== null) {
         // Atualizando uma turma existente
@@ -49,13 +61,13 @@ const AdicionarTurma = () => {
         setTurmas(updatedTurmas);
         setEditIndex(null);
         setEditId(null);
-        toast.success('Turma atualizada com sucesso!'); // Toast de sucesso para edição
+        toast.success('Turma atualizada com sucesso!');
       } else {
         // Adicionando uma nova turma
         const docRef = await addDoc(turmasCollectionRef, turmaData);
         setTurmas([...turmas, { ...turmaData, id: docRef.id }]);
-        toast.success('Nova turma adicionada com sucesso!'); // Toast de sucesso para adição
-        navigate('/Dashboard'); // Navega para o Dashboard após sucesso
+        toast.success('Nova turma adicionada com sucesso!');
+        navigate('/Dashboard');
       }
   
       // Limpa os campos após adicionar/editar

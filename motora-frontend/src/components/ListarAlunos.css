@@ -1,0 +1,88 @@
+table {
+    width: 100%;
+    border-collapse: separate; /* Evita o colapso das bordas */    
+  }
+  
+  th, td {
+    padding: 10px; /* Dobrado o espaçamento interno */
+    text-align: center; /* Centraliza o texto */
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  button {
+    margin-right: 10px;
+    padding: 10px 20px; /* Tamanho dobrado */
+    color: white;
+    border: 1px solid black;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  button.edit {
+    background-color: #d9a500; /* Amarelo escuro para o botão de editar */
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  
+  button.edit:hover {
+    background-color: #b8860b; /* Efeito de hover */
+  }
+  
+  button.delete {
+    background-color: #e63946; /* Vermelho para o botão de excluir */
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  
+  button.delete:hover {
+    background-color: #c0392b; /* Efeito de hover */
+  }
+
+  button.resultados {
+    background-color: purple;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 10px;
+    margin-left: 10px;
+    color: white;
+  }
+
+  button.resultados:hover {
+    background-color: #6466db; /* Efeito de hover */
+  }
+
+  .loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ajusta a altura conforme necessário */
+    text-align: center;
+  }
+  
+  .loading p {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top: 4px solid #28a745; /* Verde para o spinner */
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  

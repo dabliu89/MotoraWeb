@@ -10,6 +10,12 @@ import EditarTurma from './pages/Turma/EditarTurma';
 import NovaTurma from './pages/Turma/NovaTurma';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ListarAlunos from './components/ListarAlunos';
+import DashboardAluno from './pages/Dashboard/DashboardAluno';
+import NovoAluno from './pages/Alunos/NovoAluno';
+import AdicionarAluno from './pages/Alunos/AdicionarAluno';
+import EditarAluno from './pages/Alunos/EditarAluno'; // Importa o componente de edição de aluno
+import ListarTurmas from './components/ListarTurmas';
 
 function App() {
   return (
@@ -24,6 +30,12 @@ function App() {
         <Route path="/nova-turma" element={<NovaTurma />} />
         <Route path="/editar-turma/:id" element={<EditarTurma />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />      
+        <Route path="/turma/:turmaId/alunos" element={<ListarAlunos />} />
+        <Route path="/listar-turmas" element={<ListarTurmas />} />
+        <Route path="/turma/:turmaId/dashboard-aluno" element={<DashboardAluno />} />
+        <Route path="/novo-aluno/:turmaId" element={<NovoAluno />} />
+        <Route path="/adicionar-aluno/:turmaId" element={<AdicionarAluno />} />
+        <Route path="/editar-aluno/:id" element={<EditarAluno />} /> {/* Rota para editar aluno */}
       </Routes>
       <ToastContainer />
     </div>

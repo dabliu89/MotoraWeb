@@ -1,0 +1,27 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  button[type="adicionar"] {
+    background-color: #37A569;}
+  
+  button[type="adicionar"]:hover {
+    background-color: #218838;
+  }
+  
+  .h2 {
+    color: #16914F;
+  }
+  
+  .dashboard-container {  
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
