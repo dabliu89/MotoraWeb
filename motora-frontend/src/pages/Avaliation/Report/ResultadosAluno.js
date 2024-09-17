@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { doc, getDoc } from 'firebase/firestore';
+import { toast } from 'react-toastify'; // Importando o toast
 import { db } from '../../../firebaseConfig';
 import { calcularIMC, avaliarIMC } from '../Classification/BMI';
 import { avaliarDesempenho } from '../Classification/6Minutos';
@@ -12,6 +13,7 @@ import './ResultadosAluno.css';
 
 const ResultadosAluno = ({ alunoId, onClose }) => {
   const [aluno, setAluno] = useState(null);
+  const [feedback, setFeedback] = useState('');
 
   useEffect(() => {
     const fetchAluno = async () => {
@@ -42,47 +44,46 @@ const ResultadosAluno = ({ alunoId, onClose }) => {
     sentarAlcancar
   } = aluno;
 
-  // Conversão de sexo
   const sexoConvertido = sexo === 'Masculino' ? 'Rapazes' : sexo === 'Feminino' ? 'Moças' : sexo;
 
-  // Verificações para valores indefinidos e classificações
-  console.log("massa:", massa, "estatura:", estatura, "sexo:", sexoConvertido, "idade:", idade);
-
-  // Avaliação IMC
-  const resultadoIMC = massa != null && estatura != null && massa > 0 && estatura > 0 
+  const resultadoIMC = massa && estatura && massa > 0 && estatura > 0 
     ? avaliarIMC(massa, estatura, sexoConvertido, idade) 
     : 'Dados ausentes';
 
-  // Avaliação RCE
-  const resultadoRCE = perimetroCintura != null && estatura != null && perimetroCintura > 0 && estatura > 0 
+  const resultadoRCE = perimetroCintura && estatura && perimetroCintura > 0 && estatura > 0 
     ? avaliarRCE(perimetroCintura, estatura) 
     : 'Dados ausentes';
 
-  // Avaliação Desempenho (corrida de 6 minutos)
-  console.log("corrida6Min:", corrida6Min, "idade:", idade, "sexo:", sexoConvertido);
-  const resultadoDesempenho = corrida6Min != null && !isNaN(corrida6Min) 
+  const resultadoDesempenho = corrida6Min && !isNaN(corrida6Min) 
     ? avaliarDesempenho(parseFloat(corrida6Min), idade, sexoConvertido) 
     : 'Dados ausentes';
 
-  // Avaliação Abdominais
-  const resultadoAbdominais = abdominais != null && !isNaN(abdominais) 
+  const resultadoAbdominais = abdominais && !isNaN(abdominais) 
     ? avaliarAbdominais(parseInt(abdominais, 10), idade, sexoConvertido) 
     : 'Dados ausentes';
 
-  // Avaliação Arremesso de Medicineball
-  const resultadoArremesso = arremesso != null && !isNaN(arremesso) 
+  const resultadoArremesso = arremesso && !isNaN(arremesso) 
     ? avaliarArremesso(parseFloat(arremesso), idade, sexoConvertido) 
     : 'Dados ausentes';
 
-  // Avaliação Corrida (20 metros)
-  const resultadoCorrida = corrida20m != null && !isNaN(corrida20m) 
+  const resultadoCorrida = corrida20m && !isNaN(corrida20m) 
     ? avaliarCorrida(parseFloat(corrida20m), idade, sexoConvertido) 
     : 'Dados ausentes';
 
-  // Avaliação Sentar e Alcançar
-  const resultadoSentarAlcancar = sentarAlcancar != null && !isNaN(sentarAlcancar) 
+  const resultadoSentarAlcancar = sentarAlcancar && !isNaN(sentarAlcancar) 
     ? avaliarSentarAlcancar(parseFloat(sentarAlcancar), idade, sexoConvertido) 
     : 'Dados ausentes';
+
+  const handleEnviarFeedback = () => {
+    // Simular o envio de feedback
+    console.log(`Feedback para ${nome}:`, feedback);
+
+    // Exibir toast de sucesso
+    toast.success('Feedback enviado com sucesso!');
+
+    // Fechar o popup
+    onClose();
+  };
 
   return (
     <div className="popup-overlay">
@@ -133,6 +134,19 @@ const ResultadosAluno = ({ alunoId, onClose }) => {
             </tr>
           </tbody>
         </table>
+
+        <h3>Feedback</h3>
+        <textarea
+          value={feedback}
+          onChange={(e) => setFeedback(e.target.value)}
+          placeholder="Escreva o feedback"
+          rows="4"
+          style={{ width: '100%', marginTop: '10px' }}
+        />
+
+        <button onClick={handleEnviarFeedback} className="send-feedback-btn">
+          Enviar Feedback
+        </button>
       </div>
     </div>
   );

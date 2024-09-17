@@ -6,9 +6,9 @@ const Navigation = () => {
   const navigate = useNavigate();
 
   return (
-    <nav style={styles.navigation}>      
+    <nav style={styles.navigation}>
       <button style={styles.navButton} onClick={() => navigate('/Dashboard')}>TURMAS</button>
-      <button style={styles.navButton} onClick={() => navigate('/Avaliation')}>AVALIAÇÃO</button>      
+      <button style={styles.navButton} onClick={() => window.open('https://lume.ufrgs.br/handle/10183/217804', '_blank')}>MANUAL</button>
     </nav>
   );
 };
@@ -20,11 +20,11 @@ const styles = {
     backgroundColor: '#f8f9fa',
   },
   navButton: {
-    marginTop: '10px', 
+    marginTop: '10px',
     padding: '8px 16px',
-    border: 'none', 
-    backgroundColor: 'transparent', 
-    color: '#16914F', 
+    border: 'none',
+    backgroundColor: 'transparent',
+    color: '#16914F',
     cursor: 'pointer',
     fontSize: '16px',
   },
