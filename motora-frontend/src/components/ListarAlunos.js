@@ -1,15 +1,18 @@
+import React, { useEffect, useState } from 'react';
 import { collection, getDocs, doc, deleteDoc, query, where } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
-import React, { useEffect, useState } from 'react';
 import { db } from '../firebaseConfig';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ResultadosAluno from '../pages/Avaliation/Report/ResultadosAluno'; // Verifique o caminho correto
 import './ListarAlunos.css'; // Verifique o caminho e a importação
 
 const ListarAlunos = () => {
   const [alunos, setAlunos] = useState([]);
   const [loading, setLoading] = useState(true); // Estado para controle de carregamento
+  const [selectedAlunoId, setSelectedAlunoId] = useState(null);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
   const { turmaId } = useParams();
   const navigate = useNavigate();
   const auth = getAuth();
@@ -53,7 +56,13 @@ const ListarAlunos = () => {
   };
 
   const verResultados = (id) => {
-    navigate(`/resultados-aluno/${id}`);
+    setSelectedAlunoId(id);
+    setIsPopupOpen(true);
+  };
+
+  const closePopup = () => {
+    setIsPopupOpen(false);
+    setSelectedAlunoId(null);
   };
 
   return (
@@ -98,6 +107,8 @@ const ListarAlunos = () => {
           </tbody>
         </table>
       )}
+
+      {isPopupOpen && <ResultadosAluno alunoId={selectedAlunoId} onClose={closePopup} />}
     </div>
   );
 };
