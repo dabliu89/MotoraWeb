@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { doc, getDoc } from 'firebase/firestore';
-import { toast } from 'react-toastify'; // Importando o toast
+import { toast } from 'react-toastify'; 
 import { db } from '../../../firebaseConfig';
 import { calcularIMC, avaliarIMC } from '../Classification/BMI';
 import { avaliarDesempenho } from '../Classification/6Minutos';

@@ -12,16 +12,16 @@ body {
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  margin: 20px auto; /* Espaço ao redor do container */
-  max-width: 1200px; /* Ajuste conforme necessário */
+  margin: 20px auto; 
+  max-width: 1200px; 
 }
 
 .form-container {
   padding: 20px;
-  margin: 20px 0; /* Espaço entre o form-container e os elementos ao redor */
-  border: 1px solid #ddd; /* Borda ao redor do form-container */
-  border-radius: 8px; /* Bordas arredondadas */
-  background-color: #fff; /* Fundo branco */
+  margin: 20px 0; 
+  border: 1px solid #ddd; 
+  border-radius: 8px; 
+  background-color: #fff; 
 }
 
 h2, h3 {
@@ -35,7 +35,7 @@ h2, h3 {
 }
 
 .row-single {
-  margin-bottom: 10px; /* Reduz a distância entre os componentes pela metade */
+  margin-bottom: 10px; 
 }
 
 .row-single label {

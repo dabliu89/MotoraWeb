@@ -4,7 +4,7 @@ import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../../firebaseConfig';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import './EditAluno.css'; // Certifique-se de que o caminho esteja correto
+import './EditAluno.css'; 
 
 const EditAluno = () => {
   const [nome, setNome] = useState('');
@@ -20,10 +20,10 @@ const EditAluno = () => {
   const [corrida20m, setCorrida20m] = useState('');
   const [sentarAlcancar, setSentarAlcancar] = useState('');
   const [alunoId, setAlunoId] = useState(null);
-  const [turmaId, setTurmaId] = useState(null); // Adicionando turmaId
+  const [turmaId, setTurmaId] = useState(null); 
 
   const navigate = useNavigate();
-  const { id } = useParams(); // Obtém o ID do aluno da URL
+  const { id } = useParams(); 
 
   useEffect(() => {
     const loadAluno = async () => {
@@ -45,10 +45,10 @@ const EditAluno = () => {
           setCorrida20m(aluno.corrida20m);
           setSentarAlcancar(aluno.sentarAlcancar);
           setAlunoId(id);
-          setTurmaId(aluno.turmaId); // Certifique-se de que turmaId é definido aqui
+          setTurmaId(aluno.turmaId); 
         } else {
           toast.error('Aluno não encontrado!');
-          navigate('/dashboard'); // Redireciona para a página de dashboard se o aluno não for encontrado
+          navigate('/dashboard'); 
         }
       } catch (error) {
         toast.error('Erro ao carregar dados do aluno.');
@@ -78,7 +78,7 @@ const EditAluno = () => {
       };
       await updateDoc(alunoDoc, alunoData);
       toast.success('Aluno atualizado com sucesso!');
-      navigate(`/turma/${turmaId}/dashboard-aluno`); // Redireciona para a página de dashboard da turma
+      navigate(`/turma/${turmaId}/dashboard-aluno`); 
     } catch (error) {
       toast.error('Erro ao atualizar o aluno.');
     }

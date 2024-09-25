@@ -105,8 +105,6 @@ ul li button {
   background-color: #51e493;
 }
 
-
-/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   .container {
     padding: 10px;

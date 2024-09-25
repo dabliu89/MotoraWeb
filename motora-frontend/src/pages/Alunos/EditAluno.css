@@ -104,18 +104,18 @@ button[type="button"]:hover {
 }
 
 button[type="submit"] {
-    background-color: #d9a500; /* Amarelo escuro para o botão de editar */
+    background-color: #d9a500; 
 }
 
 button[type="submit"]:hover {
-    background-color: #b8860b; /* Efeito de hover */
+    background-color: #b8860b; 
 }
 
 .form-buttons {
     display: flex;
-    justify-content: flex-end; /* Alinha os botões à direita */
-    gap: 10px; /* Espaço entre os botões */
-    margin-top: 20px; /* Espaço acima dos botões */
+    justify-content: flex-end; 
+    gap: 10px; 
+    margin-top: 20px; 
 }
 
 

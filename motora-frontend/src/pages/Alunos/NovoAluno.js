@@ -6,7 +6,7 @@ import '../Dashboard/DashboardAluno.css';
 import AdicionarAluno from './AdicionarAluno';
 
 const NovoAluno = () => {
-  const { turmaId } = useParams(); // Obtém o ID da turma da URL
+  const { turmaId } = useParams(); 
 
   return (
     <div>
@@ -15,7 +15,7 @@ const NovoAluno = () => {
       <header className="header">
         <h2 className="h2">Alunos</h2>
       </header>      
-      <AdicionarAluno turmaId={turmaId} /> {/* Passa o turmaId para AdicionarAluno */}     
+      <AdicionarAluno turmaId={turmaId} /> 
     </div>
   );
 };

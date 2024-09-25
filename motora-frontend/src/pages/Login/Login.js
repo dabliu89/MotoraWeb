@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { auth } from '../../firebaseConfig';
 import './Login.css';
 
-// Componente Login
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -16,7 +15,7 @@ const Login = () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       setMessage('Login realizado com sucesso!');
-      navigate('/dashboard'); // Redireciona para a página de dashboard
+      navigate('/dashboard'); 
     } catch (error) {
       console.error("Erro ao realizar login: ", error);
       setMessage('Ocorreu um erro ao realizar o login.');

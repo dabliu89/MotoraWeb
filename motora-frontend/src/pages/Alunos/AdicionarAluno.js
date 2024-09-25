@@ -27,7 +27,7 @@ const AdicionarAluno = () => {
   const navigate = useNavigate();
   const auth = getAuth();
   const user = auth.currentUser;
-  const { turmaId } = useParams(); // Obtém o ID da turma da URL
+  const { turmaId } = useParams(); 
 
   const alunosCollectionRef = collection(db, 'alunos');
 

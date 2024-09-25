@@ -1,46 +1,45 @@
-import { collection, getDocs, doc, deleteDoc, query, where } from 'firebase/firestore'; // Adiciona query e where
-import { getAuth } from 'firebase/auth'; // Importa o Firebase Auth
+import { collection, getDocs, doc, deleteDoc, query, where } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth'; 
 import React, { useEffect, useState } from 'react';
 import { db } from '../firebaseConfig';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify'; // Importa o react-toastify
+import { toast } from 'react-toastify'; 
 import 'react-toastify/dist/ReactToastify.css';
 import './ListarTurmas.css';
 
 const ListarTurmas = () => {
   const [turmas, setTurmas] = useState([]);
-  const [loading, setLoading] = useState(true); // Estado para controle de carregamento
+  const [loading, setLoading] = useState(true); 
   const navigate = useNavigate();
   const auth = getAuth();
-  const user = auth.currentUser; // Obtém o usuário logado
+  const user = auth.currentUser; 
 
-  // Verifica se o usuário está autenticado
+  
   useEffect(() => {
     if (!user) {
       toast.error('Usuário não autenticado.');
-      navigate('/login'); // Redireciona para a página de login, se necessário
+      navigate('/login'); 
     }
   }, [user, navigate]);
 
   const loadTurmas = async () => {
-    setLoading(true); // Inicia o estado de carregamento
+    setLoading(true); 
     if (user) {
-      try {
-        // Cria uma query para filtrar as turmas pelo ID do usuário
+      try {        
         const q = query(collection(db, 'turmas'), where('userId', '==', user.uid));
         const data = await getDocs(q);
         setTurmas(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       } catch (error) {
         toast.error('Erro ao carregar turmas.');
       } finally {
-        setLoading(false); // Finaliza o estado de carregamento
+        setLoading(false);
       }
     }
   };
 
   useEffect(() => {
     loadTurmas();
-  }, [user]); // Recarrega quando o usuário for definido
+  }, [user]); 
 
   const editTurma = (id) => {
     navigate(`/editar-turma/${id}`);
@@ -51,15 +50,14 @@ const ListarTurmas = () => {
       const turmaDoc = doc(db, 'turmas', id);
       await deleteDoc(turmaDoc);
       toast.success('Turma excluída com sucesso!');
-      loadTurmas(); // Recarrega as turmas após a exclusão
+      loadTurmas(); 
     } catch (error) {
       toast.error('Erro ao excluir a turma.');
     }
   };
 
-  // Função para redirecionar para a página de alunos da turma
   const verAlunos = (turmaId) => {
-    navigate(`/turma/${turmaId}/dashboard-aluno`); // Modificado para navegar para DashboardAlunos
+    navigate(`/turma/${turmaId}/dashboard-aluno`); 
   };
 
   return (

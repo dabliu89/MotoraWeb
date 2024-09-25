@@ -6,8 +6,8 @@ import { toast } from 'react-toastify';
 import './EditTurma.css';
 
 const EditarTurma = () => {
-    const { id } = useParams(); // Obtém o ID da URL
-    const navigate = useNavigate(); // Hook para navegação
+    const { id } = useParams(); 
+    const navigate = useNavigate(); 
     const [turma, setTurma] = useState({ nome: '', serie: '', numero: '', descricao: '' });
 
     useEffect(() => {
@@ -33,7 +33,7 @@ const EditarTurma = () => {
             const turmaDoc = doc(db, 'turmas', id);
             await updateDoc(turmaDoc, turma);
             toast.success('Turma editada com sucesso!');
-            navigate('/Dashboard'); // Redireciona para a página de turmas
+            navigate('/Dashboard'); 
         } catch (error) {
             toast.error('Não foi possível editar a turma.');
         }

@@ -50,12 +50,12 @@ input[type="text"] {
 }
 
 button[type="editar"] {
-  background-color: #d9a500; /* Amarelo escuro para o botão de editar */
+  background-color: #d9a500; 
   margin-top: 15px;
 }
 
 button[type="editar"]:hover {
-  background-color: #b8860b; /* Efeito de hover */
+  background-color: #b8860b; 
 }
 
 ul {
@@ -96,8 +96,6 @@ ul li button {
   cursor: pointer;
 }
 
-
-/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
   .container {
     padding: 10px;

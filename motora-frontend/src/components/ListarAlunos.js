@@ -5,12 +5,12 @@ import { db } from '../firebaseConfig';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import ResultadosAluno from '../pages/Avaliation/Report/ResultadosAluno'; // Verifique o caminho correto
-import './ListarAlunos.css'; // Verifique o caminho e a importação
+import ResultadosAluno from '../pages/Avaliation/Report/ResultadosAluno';
+import './ListarAlunos.css';
 
 const ListarAlunos = () => {
   const [alunos, setAlunos] = useState([]);
-  const [loading, setLoading] = useState(true); // Estado para controle de carregamento
+  const [loading, setLoading] = useState(true);
   const [selectedAlunoId, setSelectedAlunoId] = useState(null);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const { turmaId } = useParams();

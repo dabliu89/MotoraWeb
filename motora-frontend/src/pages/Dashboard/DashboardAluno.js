@@ -6,7 +6,7 @@ import './DashboardAluno.css';
 import ListarAlunos from '../../components/ListarAlunos';
 
 const DashboardAluno = () => {
-  const { turmaId } = useParams(); // Obtém o ID da turma da URL
+  const { turmaId } = useParams(); 
   const navigate = useNavigate();
 
   return (
@@ -19,7 +19,7 @@ const DashboardAluno = () => {
       <div className="dashboard-container">
         <button 
           type="adicionar" 
-          onClick={() => navigate(`/novo-aluno/${turmaId}`)} // Inclui o id da turma na URL
+          onClick={() => navigate(`/novo-aluno/${turmaId}`)} 
         >
           Novo aluno
         </button>

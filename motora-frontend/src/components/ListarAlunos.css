@@ -1,11 +1,11 @@
 table {
     width: 100%;
-    border-collapse: separate; /* Evita o colapso das bordas */    
+    border-collapse: separate; 
   }
   
   th, td {
-    padding: 10px; /* Dobrado o espaçamento interno */
-    text-align: center; /* Centraliza o texto */
+    padding: 10px; 
+    text-align: center; 
   }
   
   th {
@@ -14,7 +14,7 @@ table {
   
   button {
     margin-right: 10px;
-    padding: 10px 20px; /* Tamanho dobrado */
+    padding: 10px 20px; 
     color: white;
     border: 1px solid black;
     border-radius: 4px;
@@ -23,7 +23,7 @@ table {
   }
   
   button.edit {
-    background-color: #d9a500; /* Amarelo escuro para o botão de editar */
+    background-color: #d9a500; 
     margin-top: 0px;
     margin-bottom: 0px;
     margin-right: 10px;
@@ -31,11 +31,11 @@ table {
   }
   
   button.edit:hover {
-    background-color: #b8860b; /* Efeito de hover */
+    background-color: #b8860b; 
   }
   
   button.delete {
-    background-color: #e63946; /* Vermelho para o botão de excluir */
+    background-color: #e63946; 
     margin-top: 0px;
     margin-bottom: 0px;
     margin-right: 10px;
@@ -43,7 +43,7 @@ table {
   }
   
   button.delete:hover {
-    background-color: #c0392b; /* Efeito de hover */
+    background-color: #c0392b; 
   }
 
   button.resultados {
@@ -56,14 +56,14 @@ table {
   }
 
   button.resultados:hover {
-    background-color: #6466db; /* Efeito de hover */
+    background-color: #6466db; 
   }
 
   .loading {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Ajusta a altura conforme necessário */
+    height: 100vh; 
     text-align: center;
   }
   
@@ -75,7 +75,7 @@ table {
   .spinner {
     border: 4px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
-    border-top: 4px solid #28a745; /* Verde para o spinner */
+    border-top: 4px solid #28a745; 
     width: 40px;
     height: 40px;
     animation: spin 1s linear infinite;
@@ -92,11 +92,11 @@ table {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Fundo escuro com opacidade */
+    background: rgba(0, 0, 0, 0.5); 
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Certifique-se de que o pop-up esteja sobre outros elementos */
+    z-index: 1000; 
   }
   
   .popup-content {

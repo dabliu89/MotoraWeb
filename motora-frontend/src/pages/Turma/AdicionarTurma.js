@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import Navigation from '../../components/Navigation/Navigation';
 import { addDoc, collection, deleteDoc, doc, getDocs, updateDoc } from 'firebase/firestore';
-import { getAuth } from 'firebase/auth'; // Importa a autenticação do Firebase
+import { getAuth } from 'firebase/auth'; 
 import React, { useEffect, useState } from 'react';
 import { db } from '../../firebaseConfig';
 import '../../pages/Turma/AdicionarTurma.css';
@@ -19,12 +19,11 @@ const AdicionarTurma = () => {
   const [editId, setEditId] = useState(null);
 
   const navigate = useNavigate();
-  const auth = getAuth(); // Inicializa a autenticação
-  const user = auth.currentUser; // Captura o usuário logado
+  const auth = getAuth(); 
+  const user = auth.currentUser; 
 
   const turmasCollectionRef = collection(db, 'turmas');
 
-  // Função para carregar as turmas do Firebase
   const loadTurmas = async () => {
     const data = await getDocs(turmasCollectionRef);
     setTurmas(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
@@ -32,10 +31,8 @@ const AdicionarTurma = () => {
 
   useEffect(() => {
     loadTurmas();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Função para adicionar uma nova turma
   const addTurma = async () => {
     if (!user) {
       toast.error('Usuário não está autenticado.');
@@ -47,12 +44,11 @@ const AdicionarTurma = () => {
       serie, 
       numero, 
       descricao,
-      userId: user.uid // Associa o ID do usuário logado à turma
+      userId: user.uid 
     };
     
     try {
       if (editIndex !== null) {
-        // Atualizando uma turma existente
         const turmaDoc = doc(db, 'turmas', editId);
         await updateDoc(turmaDoc, turmaData);
         const updatedTurmas = turmas.map((turma, index) =>
@@ -63,14 +59,12 @@ const AdicionarTurma = () => {
         setEditId(null);
         toast.success('Turma atualizada com sucesso!');
       } else {
-        // Adicionando uma nova turma
         const docRef = await addDoc(turmasCollectionRef, turmaData);
         setTurmas([...turmas, { ...turmaData, id: docRef.id }]);
         toast.success('Nova turma adicionada com sucesso!');
         navigate('/Dashboard');
       }
   
-      // Limpa os campos após adicionar/editar
       setNome('');
       setSerie('');
       setNumero('');
@@ -80,7 +74,6 @@ const AdicionarTurma = () => {
     }
   };
 
-  // Função para editar uma turma
   const editTurma = (index) => {
     const turma = turmas[index];
     setNome(turma.nome);
@@ -91,7 +84,6 @@ const AdicionarTurma = () => {
     setEditId(turma.id);
   };
 
-  // Função para deletar uma turma
   const deleteTurma = async (index) => {
     const turmaDoc = doc(db, 'turmas', turmas[index].id);
     await deleteDoc(turmaDoc);
