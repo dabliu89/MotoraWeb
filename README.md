@@ -4,13 +4,11 @@
 Sistema de facilitação de registro e acompanhamento de resultados de avaliações físicas conduzidas no âmbito escolar.
 
 <h2>Desenvolvedores:</h2>
-Wesley Lessa Pinheiro (dabliu89)<br>
-Breno Gonzaga de Carvalho (brenogonzagacarvalho)
+Wesley Lessa Pinheiro (dabliu89)
 
 <h2>Tecnologias utilizadas</h2>
-Front-End: JavaScript / React<br>
-Back-End: Java<br>
-Banco de dados: MySQL
+JavaScript / React<br>
+Firebase<br>
 
 <h2>Ferramentas externas</h2>
 <b>Gestão de projeto no Notion:</b><br>
